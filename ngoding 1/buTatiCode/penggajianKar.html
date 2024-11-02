@@ -1,0 +1,122 @@
+<html lang="en">
+
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+</head>
+
+<body>
+       <center>
+              <h1>Penghitungan gaji karyawan</h1>
+              <hr>
+              <table>
+                     <tr>
+                            <td>BULAN :
+                            <td>
+                                   <input type="text" id="inputBulan" size="20">
+                            </td>
+                            </td>
+                     </tr>
+                     <tr>
+                            <td>TAHUN :
+                            <td>
+                                   <input type="number" id="inputTahun" size="20">
+                            </td>
+                            </td>
+                     </tr>
+                     <tr>
+                            <td>NIK :
+                            <td>
+                                   <input type="number" id="inputNik" size="20">
+                            </td>
+                            </td>
+                     </tr>
+                     <tr>
+                            <td>Nama :
+                            <td>
+                                   <input type="text" id="inputNama" size="20">
+                            </td>
+                            </td>
+                     </tr>
+                     <tr>
+                            <td>Gaji Pokok :
+                            <td><input type="number" id="inputGajiPokok" size="5"></td>
+                            </td>
+                     </tr>
+                     <tr>
+                            <td>PPN :
+                            <td><input type="number" id="inputPpn" size="5"></td>
+                            </td>
+                     </tr>
+                     <tr>
+                            <td>Tunjangan :
+                            <td><input type="number" id="inputTunjangan" size="5"></td>
+                            </td>
+                     </tr>
+                     <tr>
+                            <td>Gaji Bersih :
+                            <td><input type="number" id="inputGajiBersih" size="5"></td>
+                            </td>
+                     </tr>
+              </table>
+              <button type="button" id="btn" onclick="btn()">SUBMIT</button>
+              <hr>
+              <table border="10px" style="text-align: center;">
+                     <tr>
+                            <th width="100px" rowspan="2">Bulan</th>
+                            <th width="100px" rowspan="2">Tahun</th>
+                            <th width="100px" rowspan="2">NIK</th>
+                            <th width="100px" rowspan="2">Nama</th>
+                            <th width="100px" rowspan="2">Gaji Pokok</th>
+                            <th width="100px" rowspan="2">PPN</th>
+                            <th width="100px" rowspan="2">Tunjangan</th>
+                            <th width="100px" rowspan="2">Gaji Bersih</th>
+
+                     </tr>
+                     <tr>
+                     <tr>
+                            <td id="bulan"></td>
+                            <td id="tahun"></td>
+                            <td id="nik"></td>
+                            <td id="nama"></td>
+                            <td id="gajiPokok"></td>
+                            <td id="ppn"></td>
+                            <td id="tunjangan"></td>
+                            <td id="gajiBersih"></td>
+                     </tr>
+                           
+                     </tr>
+                     </tr>
+              </table>
+       </center>
+       <script>
+              const btn = () => {
+                     const bulan = document.getElementById("inputBulan").value
+                     const tahun = document.getElementById("inputTahun").value
+                     const nik = document.getElementById("inputNik").value
+                     const nama = document.getElementById("inputNama").value
+                     const gajiPokok = document.getElementById("inputGajiPokok").value
+                     // const ppn = document.getElementById("inputPpn").value
+                     // const tunjangan = document.getElementById("inputTunjangan").value 
+                     // const gajiBersih = document.getElementById("inputGajiBersih").value 
+                    
+
+                     const ppn = 0.1 * gajiPokok
+                     const tunjangan = 0.2 * gajiPokok
+                     const gajiBersih = gajiPokok + tunjangan - ppn
+
+                     document.getElementById("bulan").value = bulan
+                     document.getElementById("tahun").value = tahun
+                     document.getElementById("nik").value = nik
+                     // document.getElementById("nama").value = nama
+                     // document.getElementById("gajiPokok").value = gajiPokok
+                     // document.getElementById("ppn").value = ppn
+                     // document.getElementById("tunjangan").value = tunjangan
+                     // document.getElementById("gajiBersih").value = gajiBersih
+                     console.log(bulan, tahun, nik, nama, gajiPokok, gajiBersih, ppn, tunjangan)
+              }
+       </script>
+</body>
+
+</html>

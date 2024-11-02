@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+</head>
+
+<body>
+       <center>
+              <h1>OPERASI MTK</h1>
+              <table>
+                     <tr>
+                            <td>NILAI A :<input type="number" id="a" size="5"></td>
+                     </tr>
+                     <tr>
+                            <td>NILAI B :<input type="number" id="b" size="5"></td>
+                     </tr>
+                     <tr>
+                            <td>NILAI C :<input type="number" id="c" size="5"></td>
+                     </tr>
+              </table>
+              <input type="button" value="KALI" onclick="kali()">
+              <input type="button" value="BAGI" onclick="bagi()">
+              <input type="button" value="TAMBAH" onclick="tambah()">
+              <input type="button" value="KURANG" onclick="kurang()">
+              <input type="button" value="RESET" onclick="reset()">
+       </center>
+       <script>
+
+              const kali = () => {
+                     const a = document.getElementById("a").value
+                     const b = document.getElementById("b").value
+                     const hasilC = a * b
+                     document.getElementById("c").value = hasilC 
+                     
+              }
+              const bagi = () => {
+                     const a = document.getElementById("a").value
+                     const b = document.getElementById("b").value
+                     const hasilBagi = a / b 
+                     document.getElementById("c").value = hasilBagi
+              }
+              const tambah = () => {
+                     const a = document.getElementById("a").value
+                     const b = document.getElementById("b").value
+                     const hasilTambah = a * 1 + b * 1
+                     document.getElementById("c").value = hasilTambah
+              }
+              const kurang = () => {
+                     const a = document.getElementById("a").value
+                     const b = document.getElementById("b").value
+                     const hasilKurang = a - b 
+                     document.getElementById("c").value = hasilKurang
+              }
+              const reset = () => {
+                     document.getElementById("c").reset() = hasilKurang
+              }
+       </script>
+</body>
+
+</html>

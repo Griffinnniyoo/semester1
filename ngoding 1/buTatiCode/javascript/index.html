@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+</head>
+<body>
+       <table>
+              <tr>
+                     <td>
+                            <label for="">kendaraan</label>s
+                            <td>
+                                   <input type="text" id="kendaraan">   
+                            </td>
+                     </td>
+              </tr>
+              <tr>
+                     <td>
+                            <label for="">nombor polisi</label>
+                            <td>
+                                   <input type="text" name="" id="numberPolisi">
+                            </td>
+                     </td>
+              </tr>
+              <tr>
+                     <td>
+                            <label for="">jam masuk</label>
+                            <td>
+                                   <input type="number" name="" id="jamMasuk">
+                            </td>
+                     </td>
+              </tr>
+              <tr>
+                     <td>
+                            <label for="">menit masuk</label>
+                            <td>
+                                   <input type="number" name="" id="menitMasuk">
+                            </td>
+                     </td>
+              </tr>
+              <tr>
+                     <td>
+                            <label for="">jam keluar</label>
+                            <td>
+                                    <input type="number" name="" id="jamKeluar"> 
+                            </td>
+                     </td>
+              </tr>
+              <tr>
+                     <td>
+                            <label for="">menit keluar</label>
+                            <td>
+                                   <input type="number" name="" id="menitKeluar">
+                            </td>
+                     </td>
+              </tr>
+              <tr>
+                     <td><p id="1"></p></td>
+                     <td><p id="2"></p></td>
+                     <td><p id="3"></p></td>
+                     <td><p id="4"></p></td>
+                     <td><p id="5"></p></td>
+                     <td><p id="6"></p></td>
+              </tr>
+              
+       </table>
+       <button onclick="btn()">CLICKKKK!!!</button>
+
+       <script>
+              const btn = () => {
+                     const kendaraan = document.getElementById("kendaraan").value
+                     const numberPolisi = document.getElementById("numberPolisi").value
+                     const jamMasuk = document.getElementById("jamMasuk").value
+                     const menitMasuk = document.getElementById("menitMasuk").value
+                     const jamKeluar = document.getElementById("jamKeluar").value
+                     const menitKeluar = document.getElementById("menitKeluar").value
+       
+                     console.log(kendaraan,numberPolisi,jamKeluar,jamMasuk,menitKeluar,menitMasuk);
+
+                     if (menitKeluar < menitMasuk) {
+                            menitKeluar = menitKeluar + 60
+                            jamKeluar = jamKeluar - 1
+                     }
+                     const menit = menitKeluar - menitMasuk
+                     if (jamKeluar < jamMasuk) {
+                            jamKeluar = jamKeluar + 12
+                     }
+                     var jam = jamKeluar - jamMasuk
+                     if (menit > 0) {
+                             jam = jam + 1
+                     }
+                     if (kendaraan == "motor") {
+                           const biaya = 1500 + (jam - 1) * 500
+                     } else {
+                            const biaya = 1500 + (jam - 1) * 500
+                     }
+                     document.getElementById("1").value = kendaraan 
+                     document.getElementById("2").value = numberPolisi
+                     document.getElementById("3").value = 'masuk', jamMasuk, ':',menitMasuk
+                     document.getElementById("4").value = 'keluar', jamKeluar,':' ,menitKeluar
+                     document.getElementById("5").value = 'lama parkir', jam, menit,'menit'
+                     document.getElementById("6").value = 'biaya parkirnya', biaya
+              }
+       </script>
+</body>
+</html>

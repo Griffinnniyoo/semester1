@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+</head>
+<body>
+     <h1>PROGRAM PENJUALAN</h1>
+     <hr>
+     <center>
+     <table>
+               <tr>
+                      <td>NILAI BARANG :
+                         <td>
+                              <input type="text" id="namaBarang" size="20">
+                         </td>
+                    </td>
+               </tr>
+               <tr>
+                      <td>HARGA :
+                         <td>
+                              <input type="number" id="hargaBarang" size="5">
+                         </td>
+                    </td>
+               </tr>
+               <tr>
+                     <td>JUMLAH :
+                         <td>
+                              <input type="number" id="jumlahBarang" size="5">
+                         </td>
+                    </td>
+               </tr>
+               <tr>
+                      <td>TOTAL HARGA :
+                         <td>
+                              <input type="number" id="totalHarga" size="5">
+                         </td>
+                    </td>
+               </tr>
+               <tr>
+                      <td>DISKON 10% :
+                         <td><input type="number" id="diskon" size="5"></td>
+                    </td>
+               </tr>
+               <tr>
+                      <td>BAYAR :
+                         <td><input type="number" id="bayar" size="5"></td>
+                    </td>
+               </tr>
+          </table>
+          <input type="button" value="Proses" onclick="proses()">
+          <input type="button" value="Reset">
+     </center>
+
+     <script>
+          const proses = () => {
+               const hargaBarang = document.getElementById("hargaBarang").value
+               const jumlahBarang = document.getElementById("jumlahBarang").value
+               const totalBarang = hargaBarang * jumlahBarang
+               const diskonBarang = 10/100 * totalBarang
+               const bayarBarang = totalBarang - diskonBarang
+               
+               
+               document.getElementById("totalHarga").value = totalBarang
+               document.getElementById("diskon").value = diskonBarang
+               document.getElementById("bayar").value = bayarBarang
+          }
+     </script>
+</body>
+</html>

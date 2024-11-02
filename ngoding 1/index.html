@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="shortcut icon" href="./assets/img/store.png" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="stylesheet" href="./styles/login.css" />
+  <title>Simulasi UKK</title>
+</head>
+<input type="text" id="namaSiswa" placeholder="nama">
+<input type="number" id="nilaiSiswa" placeholder="angka">
+<button onclick="button()">button</button>
+
+<body>
+ 
+  <script>
+    
+ const nilaiSiswa =  document.getElementById("nilaiSiswa")
+ const namaSiswa = document.getElementById("namaSiswa")
+
+
+  const button = () => {
+    if (nilaiSiswa.value == "" ) {
+      alert("gaboleh kosong")
+    } else if (nilaiSiswa.value > 100) {
+      alert("ngaco lu")
+    } else if (nilaiSiswa.value > 90) {
+       alert(`hallo ${namaSiswa.value}`)
+       alert("nilai anda a");
+       
+     } else if (nilaiSiswa.value > 80) {
+       alert(`hallo ${namaSiswa.value}`)
+       alert("nilai anda b");
+       
+     }else if (nilaiSiswa.value > 70) {
+       alert(`hallo ${namaSiswa.value}`)
+       alert("nilai anda c");
+       
+     } else {
+       alert(`hallo ${namaSiswa.value}`)
+       alert("nilai anda d");
+     }
+    }
+  
+
+  </script>
+</body>
+
+</html>
