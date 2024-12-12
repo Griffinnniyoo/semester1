@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Penghitungan Nilai Semester</title>
+</head>
+<body>
+  <h1>Penghitungan Nilai Semester</h1>
+  <button onclick="hitungNilai()">Mulai Input Nilai</button>
+
+  <script>
+    function hitungNilai() {
+      // Meminta jumlah semester
+      let semester = parseInt(prompt("Masukkan jumlah semester (maksimal 15):"));
+      while (isNaN(semester) || semester <= 0 || semester > 15) {
+        alert("Jumlah semester harus di antara 1 dan 15!");
+        semester = parseInt(prompt("Masukkan jumlah semester (maksimal 15):"));
+      }
+
+      let pelNilaiPerSms = {};
+      let totalNilai = 0;
+      let totalPelajaran = 0;
+
+      // Loop untuk setiap semester
+      for (let i = 1; i <= semester; i++) {
+        alert(`Semester ${i}:`);
+        let jumlahPelajaran = parseInt(prompt(`Masukkan jumlah pelajaran untuk semester ${i}:`));
+        while (isNaN(jumlahPelajaran) || jumlahPelajaran <= 0) {
+          alert("Jumlah pelajaran harus lebih dari 0!");
+          jumlahPelajaran = parseInt(prompt(`Masukkan jumlah pelajaran untuk semester ${i}:`));
+        }
+
+        let pelajaran = [];
+        let nilai = {};
+
+        // Input pelajaran dan nilai
+        for (let j = 1; j <= jumlahPelajaran; j++) {
+          let namaPelajaran = prompt(`Masukkan nama pelajaran ke-${j} untuk semester ${i}:`);
+          let nilaiPelajaran = parseFloat(prompt(`Masukkan nilai untuk ${namaPelajaran}:`));
+          while (isNaN(nilaiPelajaran)) {
+            alert("Nilai harus berupa angka!");
+            nilaiPelajaran = parseFloat(prompt(`Masukkan nilai untuk ${namaPelajaran}:`));
+          }
+
+          pelajaran.push(namaPelajaran);
+          nilai[namaPelajaran] = nilaiPelajaran;
+          totalNilai += nilaiPelajaran;
+          totalPelajaran++;
+        }
+
+        pelNilaiPerSms[`Semester ${i}`] = { pelajaran: pelajaran, nilai: nilai };
+      }
+
+      // Hitung rata-rata keseluruhan
+      let rataRata = totalPelajaran > 0 ? totalNilai / totalPelajaran : 0;
+
+      // Tampilkan hasil
+      let hasil = "<<< HASIL NILAI ANDA >>>\n";
+      for (let semester in pelNilaiPerSms) {
+        hasil += `\n${semester}:\n`;
+        for (let pel in pelNilaiPerSms[semester].nilai) {
+          hasil += `- ${pel} : ${pelNilaiPerSms[semester].nilai[pel]}\n`;
+        }
+      }
+
+      hasil += `\n>>> RATA-RATA KESELURUHAN <<<\n`;
+      hasil += `Nilai rata-rata keseluruhan: ${rataRata.toFixed(2)}`;
+      alert(hasil);
+    }
+  </script>
+</body>
+</html>

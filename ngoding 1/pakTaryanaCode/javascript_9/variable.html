@@ -1,0 +1,90 @@
+<center>
+       <table>
+           <tr>
+               <td>namaBarang</td>
+               <td><input type="text" name="namaBarang" id="namaBarang"></td>
+           </tr>
+           <tr>
+               <td>harga satuan</td>
+               <td><input type="number" name="harga" id="harga"></td>
+           </tr>
+           <tr>
+               <td>jumlah barang</td>
+               <td><input type="number" name="jumlah" id="jumlah"></td>
+           </tr>
+           <tr>
+               <td colspan="2">
+                   <hr>
+               </td>
+           </tr>
+           <tr>
+               <td>total harga</td>
+               <td><input type="number" name="totalHarga" id="totalHarga" readonly></td>
+           </tr>
+           <tr>
+               <td colspan="2">
+                   <hr>
+               </td>
+           </tr>
+           <tr>
+               <td>diskon</td>
+               <td><input type="number" name="Diskon" id="Diskon"></td>
+           </tr>
+           <tr>
+               <td>bayar</td>
+               <td><input type="number" name="Bayar" id="Bayar"></td>
+           </tr>
+           <tr>
+              <td>kembalian</td>
+              <td><input type="number" name="kembalian" id="kembalian" readonly></td>
+          </tr>
+       </table>
+       <button onclick="proses()">Proses</button>
+       <button onclick="reset()">Reset</button>
+   </center>
+   <br>
+   <script>
+       function proses() {
+           var harga = parseFloat(document.getElementById("harga").value)
+           var jumlah = parseFloat(document.getElementById("jumlah").value)
+           var namaBarang = document.getElementById("namaBarang").value
+   
+           if (isNaN(harga) || isNaN(jumlah || harga <= 0 || jumlah <= 0)) {
+               alert("Masukkan nilai yang valid untuk harga dan jumlah!");
+               return;
+           }
+
+           let diskonPersen = 0
+      
+               if (namaBarang === "LE MINERAL") {
+                     diskonPersen = 0.1
+              }else if (namaBarang == "AQUA") {
+                     diskonPersen = 0.2
+              }
+              
+           const totalHarga = harga * jumlah;
+           const diskon = totalHarga * diskonPersen
+           const bayar = totalHarga - diskon
+           const kembalian = bayar - totalHarga
+           
+
+
+           document.getElementById("totalHarga").value = totalHarga;
+           document.getElementById("Diskon").value = diskon;
+           document.getElementById("Bayar").value = bayar;
+           document.getElementById("kembalian").value = kembalian
+
+       }
+   
+       function reset() {
+         
+           document.getElementById("namaBarang").value = "";
+           document.getElementById("harga").value = "";
+           document.getElementById("jumlah").value = "";
+           document.getElementById("totalHarga").value = "";
+           document.getElementById("Diskon").value = "";
+           document.getElementById("Bayar").value = "";
+           document.getElementById("kembalian").value = "";
+       }
+   </script>
+   

@@ -14,6 +14,6 @@ Tunjangan1 = int(0.2 * GajiPokok1)
 GajiBersih1 = int(GajiPokok1 + Tunjangan1 - Ppn1)
 
 print("pajak ppn anda adalah Rp.", Ppn1)
-print("Tunjangan anda adalah Rp.", (Tunjangan1))
+print("Tunjangan anda adalah Rp.", (Tunjangan1)) 
 print("Gaji pokok ppn anda adalah Rp.", (GajiPokok1))
 print("Gaji bersih anda adalah Rp. ", (GajiBersih1))

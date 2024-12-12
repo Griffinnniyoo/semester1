@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
        <meta charset="UTF-8">
@@ -7,99 +8,83 @@
 <body>
        <table>
               <tr>
-                     <td>
-                            <label for="">kendaraan</label>s
-                            <td>
-                                   <input type="text" id="kendaraan">   
-                            </td>
-                     </td>
+                     <td><label for="kendaraan">Kendaraan</label></td>
+                     <td><input type="text" id="kendaraan"></td>
               </tr>
               <tr>
-                     <td>
-                            <label for="">nombor polisi</label>
-                            <td>
-                                   <input type="text" name="" id="numberPolisi">
-                            </td>
-                     </td>
+                     <td><label for="numberPolisi">Nomor Polisi</label></td>
+                     <td><input type="text" id="numberPolisi"></td>
               </tr>
               <tr>
-                     <td>
-                            <label for="">jam masuk</label>
-                            <td>
-                                   <input type="number" name="" id="jamMasuk">
-                            </td>
-                     </td>
+                     <td><label for="jamMasuk">Jam Masuk</label></td>
+                     <td><input type="number" id="jamMasuk"></td>
               </tr>
               <tr>
-                     <td>
-                            <label for="">menit masuk</label>
-                            <td>
-                                   <input type="number" name="" id="menitMasuk">
-                            </td>
-                     </td>
+                     <td><label for="menitMasuk">Menit Masuk</label></td>
+                     <td><input type="number" id="menitMasuk"></td>
               </tr>
               <tr>
-                     <td>
-                            <label for="">jam keluar</label>
-                            <td>
-                                    <input type="number" name="" id="jamKeluar"> 
-                            </td>
-                     </td>
+                     <td><label for="jamKeluar">Jam Keluar</label></td>
+                     <td><input type="number" id="jamKeluar"></td>
               </tr>
               <tr>
-                     <td>
-                            <label for="">menit keluar</label>
-                            <td>
-                                   <input type="number" name="" id="menitKeluar">
-                            </td>
-                     </td>
+                     <td><label for="menitKeluar">Menit Keluar</label></td>
+                     <td><input type="number" id="menitKeluar"></td>
               </tr>
               <tr>
-                     <td><p id="1"></p></td>
-                     <td><p id="2"></p></td>
-                     <td><p id="3"></p></td>
-                     <td><p id="4"></p></td>
-                     <td><p id="5"></p></td>
-                     <td><p id="6"></p></td>
+                     <td colspan="2"><p id="1"></p></td>
               </tr>
-              
+              <tr>
+                     <td colspan="2"><p id="2"></p></td>
+              </tr>
+              <tr>
+                     <td colspan="2"><p id="3"></p></td>
+              </tr>
+              <tr>
+                     <td colspan="2"><p id="4"></p></td>
+              </tr>
+              <tr>
+                     <td colspan="2"><p id="5"></p></td>
+              </tr>
+              <tr>
+                     <td colspan="2"><p id="6"></p></td>
+              </tr>
        </table>
        <button onclick="btn()">CLICKKKK!!!</button>
 
        <script>
               const btn = () => {
-                     const kendaraan = document.getElementById("kendaraan").value
-                     const numberPolisi = document.getElementById("numberPolisi").value
-                     const jamMasuk = document.getElementById("jamMasuk").value
-                     const menitMasuk = document.getElementById("menitMasuk").value
-                     const jamKeluar = document.getElementById("jamKeluar").value
-                     const menitKeluar = document.getElementById("menitKeluar").value
+                     const kendaraan = document.getElementById("kendaraan").value;
+                     const numberPolisi = document.getElementById("numberPolisi").value;
+                     let jamMasuk = parseInt(document.getElementById("jamMasuk").value);
+                     let menitMasuk = parseInt(document.getElementById("menitMasuk").value);
+                     let jamKeluar = parseInt(document.getElementById("jamKeluar").value);
+                     let menitKeluar = parseInt(document.getElementById("menitKeluar").value);
        
-                     console.log(kendaraan,numberPolisi,jamKeluar,jamMasuk,menitKeluar,menitMasuk);
-
                      if (menitKeluar < menitMasuk) {
-                            menitKeluar = menitKeluar + 60
-                            jamKeluar = jamKeluar - 1
+                            menitKeluar += 60;
+                            jamKeluar -= 1;
                      }
-                     const menit = menitKeluar - menitMasuk
+                     let menit = menitKeluar - menitMasuk;
                      if (jamKeluar < jamMasuk) {
-                            jamKeluar = jamKeluar + 12
+                            jamKeluar += 12;
                      }
-                     var jam = jamKeluar - jamMasuk
+                     let jam = jamKeluar - jamMasuk;
                      if (menit > 0) {
-                             jam = jam + 1
+                             jam += 1;
                      }
-                     if (kendaraan == "motor") {
-                           const biaya = 1500 + (jam - 1) * 500
+                     let biaya;
+                     if (kendaraan.toLowerCase() === "motor") {
+                           biaya = 1500 + (jam - 1) * 500;
                      } else {
-                            const biaya = 1500 + (jam - 1) * 500
+                           biaya = 1500 + (jam - 1) * 500;
                      }
-                     document.getElementById("1").value = kendaraan 
-                     document.getElementById("2").value = numberPolisi
-                     document.getElementById("3").value = 'masuk', jamMasuk, ':',menitMasuk
-                     document.getElementById("4").value = 'keluar', jamKeluar,':' ,menitKeluar
-                     document.getElementById("5").value = 'lama parkir', jam, menit,'menit'
-                     document.getElementById("6").value = 'biaya parkirnya', biaya
+                     document.getElementById("1").innerText = `Kendaraan: ${kendaraan}`;
+                     document.getElementById("2").innerText = `Nomor Polisi: ${numberPolisi}`;
+                     document.getElementById("3").innerText = `Masuk: ${jamMasuk}:${menitMasuk}`;
+                     document.getElementById("4").innerText = `Keluar: ${jamKeluar}:${menitKeluar}`;
+                     document.getElementById("5").innerText = `Lama Parkir: ${jam} jam ${menit} menit`;
+                     document.getElementById("6").innerText = `Biaya Parkir: Rp ${biaya}`;
               }
        </script>
 </body>
