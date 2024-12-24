@@ -1,0 +1,112 @@
+<html>
+       <form action=""name=form>
+              <center>
+                     <h1>PROGRAM GAJI PEGAWAI</h1>
+                     <hr>
+                     <table>
+                            <tr>
+                                   <td>Nama Pengguna</td>
+                                   <td>:
+                                          <input type="text">
+                                   </td>
+                            </tr>
+                            <tr>
+                                   <td>Bagian</td>
+                                   <td>: 
+                                          <select name=bagian id="">
+                                                 <option value="HRD">HRD</option>
+                                                 <option value="PEMASARAN">PEMASARAN</option>
+                                                 <option value="PRODUKSI">PRODUKSI</option>
+                                                 <option value="OB">OB</option>
+                                          </select>
+                                   </td>
+                            </tr>
+                            <tr>
+                                   <td>Pendidikan</td> 
+                                   <td>:
+                                          <input type="radio" name=pendidikan value=S1>S1
+                                          <input type="radio" name=pendidikan value=S2>S2
+                                          <input type="radio" name=pendidikan value=S3>S3
+                                   </td> 
+                            </tr>
+                            <tr>
+                                   <td>Tunjangan lain</td>
+                                          <td colspan="2">:
+                                                 <input type="checkbox" name=anak id="">anak
+                                                 <input type="checkbox" name=istri id="">istri
+                                                 <input type="checkbox" name=makan id="">makan
+                                          </td>
+                            </tr>
+                            <tr>
+                                   <td><hr></td>
+                                   <td><hr></td>
+                            </tr>
+                            <tr>
+                                   <td>Gaji Pokok </td>
+                                   <td>:<input type="number" name=gajiPokok size="10"></td>
+                            </tr>
+                            <tr>
+                                   <td>Tunjangan pendidikan </td>
+                                   <td>:<input type="number" name=tunjanganPendidikan size="10"></td>
+                            </tr>
+                            <tr>
+                                   <td>Tunjangan Lain</td>
+                                   <td>:<input type="number" name=tunjanganLain size="10"></td>
+                            </tr>
+                            <tr>
+                                   <td>Gaji Total</td>
+                                   <td>:<input type="number" name=GajiTotal size="10"></td>
+                            </tr>
+                     </table>
+                     <hr>
+                     <input type="button" value="PROSES" onclick="proses()">
+                     <input type="button" value="RESET" onclick="reset()">
+              </center>
+       </form>
+
+       <script>
+              function proses() {
+                     bagian = document.form.bagian.value;
+                     if (bagian == "HRD") {
+                            gajiPokok = 8000000;
+                            document.form.gajiPokok.value = gajiPokok;
+                     } else if (bagian == "PEMASARAN") {
+                            gajiPokok = 6000000;
+                            document.form.gajiPokok.value = gajiPokok;
+                     } else if (bagian == "PRODUKSI") {
+                            gajiPokok = 7000000
+                            document.form.gajiPokok.value = gajiPokok;
+                     } else if (bagian == "OB"){
+                            gajiPokok = 3000000
+                            document.form.gajiPokok.value = gajiPokok;
+                     }
+                     pendidikan = document.form.pendidikan.value;
+                     if (pendidikan == "S1") {
+                            tunjanganPendidikan = 1000000
+                            document.form.tunjanganPendidikan.value = tunjanganPendidikan
+                     } else if (pendidikan == "S2") {
+                            tunjanganPendidikan = 2000000
+                            document.form.tunjanganPendidikan.value = tunjanganPendidikan
+                     } else if (pendidikan == "S3") {
+                            tunjanganPendidikan = 3000000
+                            document.form.tunjanganPendidikan.value = tunjanganPendidikan
+                     } 
+
+                     tunjanganAnak = 0
+                     tunjanganIstri = 0
+                     tunjanganMakan = 0
+                     if (document.form.anak.checked){
+                            tunjanganAnak = 0.1 * gajiPokok
+                     } else if (document.form.istri.checked) {
+                            tunjanganIstri = 0.15 * gajiPokok
+                     } else if (document.form.makan.checked){
+                            tunjanganMakan = 0.2 * gajiPokok
+                     }
+                     tunjanganLain = tunjanganAnak + tunjanganIstri + tunjanganMakan
+                     document.form.tunjanganLain.value = tunjanganLain
+                     gajiTotal = gajiPokok + tunjanganPendidikan + tunjanganLain
+                     document.form.GajiTotal.value = gajiTotal
+              }
+       </script>
+
+</html>
