@@ -1,0 +1,136 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+<link rel="stylesheet" href="./w3.css">
+
+<form action="" name="form">
+       <div class="w3-container w3-green w3-center">
+              <div class="w3-panel w3-white w3-center">
+                     <h3>WARTEG BAJAJ</h3>
+              </div>
+              <center>
+                     <div class="w3-panel w3-white ">
+                            <p></p>
+                            <table class="">
+                                   <tr>
+                                          <th>Makanan</th>
+                                          <th>QTY</th>
+                                          <th>Harga</th>
+                                          <th>Minuman</th>
+                                          <th>QTY</th>
+                                          <th>Harga</th>
+                                   </tr>
+                                   <td colspan="4"><hr></td>
+                                   <tr>
+                                          <td>
+                                                 <input type="checkbox" name="nasi">Nasi
+                                                 <td>
+                                                        <input type="number" name="jumlahNasi">
+                                                 </td>
+                                                 <td>
+                                                        5000
+                                                 </td>
+                                          </td>
+                                      
+                                          <td>
+                                                 <input type="checkbox" name="tehpanas">Teh panas
+                                                 <td>
+                                                        <input type="number" name="jumlahTehPanas">
+                                                 </td>
+                                                 <td>
+                                                        5000
+                                                 </td>
+                                          </td>
+   
+                                   </tr>
+                                   <tr>
+                                          <td>
+                                                 <input type="checkbox" name="soto">Soto
+                                                 <td>
+                                                        <input type="number" name="jumlahSoto">
+                                                 </td>
+                                                 <td>
+                                                        10000
+                                                 </td>
+                                          </td>
+        
+                                          <td>
+                                                 <input type="checkbox" name="jeruk">jeruk
+                                                 <td>
+                                                        <input type="number" name="jumlahJeruk">
+                                                 </td>
+                                                 <td>
+                                                        5000
+                                                 </td>
+                                          </td>
+
+                                   </tr>
+                                   <tr>
+                                          <td>
+                                                 <input type="checkbox" name="ayam">Ayaam
+                                                 <td>
+                                                        <input type="number" name="jumlahAyam">
+                                                 </td>
+                                                 <td>
+                                                        12000
+                                                 </td>
+                                          </td>
+
+                                          <td>
+                                                 <input type="checkbox" name="tehjeruk">Teh jeruk
+                                                 <td>
+                                                        <input type="number" name="jumlahTehJeruk">
+                                                 </td>
+                                                 <td>
+                                                        5000
+                                                 </td>
+                                          </td>
+                                   </tr>
+                                   <td colspan="4"><hr></td>
+                                   <tr>
+                                          <td>Total harga</td>
+                                          <td colspan="3">
+                                                 <input type="text" name="total" size="18">
+                                          </td>
+                                   </tr>
+                                   
+                            </table>
+                            <p></p>
+                     </div>
+              </center>
+              <div class="w3-panel w3-white w3-center">
+                     <p></p>
+                     
+                     <input type="button" value="proses" onclick="proses()">
+                     <button>RESET</button>
+                     <p></p>
+              </div>
+       </div>
+</form>
+
+<script>
+       function proses() {
+              harga = 0
+              jumlahNasi = document.form.jumlahNasi.value
+              jumlahTehPanas = document.form.jumlahTehPanas.value
+              jumlahSoto = document.from.jumlahSoto.value
+              jumlahJeruk = document.form.jumlahJeruk.value
+              jumlahAyam = document.form.jumlahAyam.value
+              jumlahTehJeruk = document.form.jumlahTehJeruk
+              if(document.form.nasi.checked){
+                     harga += (5000 * jumlahNasi)
+                     document.form.total.value = harga
+              } else if (document.form.tehpanas.checked){
+                     harga += (5000 * jumlahTehPanas)
+                     document.form.total.value = harga
+              } else if (document.form.soto.checked){
+                     harga += (10000 * jumlahSoto)
+                     document.form.total.value = harga
+              } else if (document.form.jeruk.checked){
+                     harga += (5000 * jumlahJeruk)
+              } else if (document.form.ayam.checked){
+                     harga += (12000 * jumlahAyam)
+              } else if (document.form.tehjeruk.checked){
+                     harga+= (5000 * jumlahTehJeruk)
+              }
+       } 
+</script>

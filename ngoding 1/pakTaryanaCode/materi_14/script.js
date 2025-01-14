@@ -1,0 +1,3 @@
+function proses() {
+       alert('oi')
+}
