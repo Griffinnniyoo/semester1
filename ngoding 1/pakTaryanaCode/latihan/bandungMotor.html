@@ -1,0 +1,85 @@
+
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="../../w3.css">
+       <title>Document</title>
+
+       <body class="w3-light-gray">
+
+              <form action="" name="form" class="w3-container w3-card w3-margin w3-white w3-padding">
+                  <!-- Header Section -->
+                  <div class="w3-panel w3-green w3-center w3-padding-large">
+                      <h1>Bandung Motor</h1>
+                  </div>
+          
+                  <!-- Form Fields -->
+                  <div class="w3-panel">
+                      <table class="w3-table">
+                          <tr>
+                              <td class="w3-text-gray w3-large">Motor</td>
+                              <td>
+                                  : 
+                                  <select name="Motor" class="w3-select w3-border" style="width: auto;">
+                                      <option value="vario">Vario</option>
+                                      <option value="beat">Beat</option>
+                                      <option value="mio">Mio</option>
+                                  </select>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td class="w3-text-gray w3-large">Aksesoris</td>
+                              <td>:
+                                  <label><input type="checkbox" name="velg" class="w3-check"> Velg</label>
+                                  <label><input type="checkbox" name="ban" class="w3-check"> Ban</label>
+                                  <label><input type="checkbox" name="jaket" class="w3-check"> Jaket</label>
+                                  <label><input type="checkbox" name="helm" class="w3-check"> Helm</label>
+                              </td>
+                          </tr>
+                          <tr><td colspan="2"><hr class="w3-border-gray"></td></tr>
+                          <tr>
+                              <td class="w3-text-gray w3-large">Harga Motor</td>
+                              <td>: <input type="text" name="hargaMotor" class="w3-input w3-border w3-round"></td>
+                          </tr>
+                          <tr>
+                              <td class="w3-text-gray w3-large">Harga Aksesoris</td>
+                              <td>: <input type="text" name="hargaAksesoris" class="w3-input w3-border w3-round"></td>
+                          </tr>
+                          <tr>
+                              <td class="w3-text-gray w3-large">Total</td>
+                              <td>: <input type="text" name="totalHarga" class="w3-input w3-border w3-round"></td>
+                          </tr>
+                          <tr><td colspan="2"><hr class="w3-border-gray"></td></tr>
+                      </table>
+                  </div>
+          
+                  <!-- Buttons -->
+                  <div class="w3-panel w3-center">
+                      <button type="button" class="w3-button w3-blue w3-round" onclick="proses()">Proses</button>
+                      <button type="button" class="w3-button w3-red w3-round" onclick="reset()">Reset</button>
+                  </div>
+              </form>
+       </body>
+       <script>
+              function proses() {
+                     Motor = document.form.Motor.value
+                     if (Motor == 'vario') {
+                            harga = 16000000
+                     } else if (Motor == 'beat'){
+                            harga = 13000000
+                     } else if(Motor == 'mio'){
+                            harga = 15000000
+                     }
+                     if (document.form.velg.checked){
+                            hargaAks = 250000
+                     } else if (document.form.ban.checked){
+                            hargaAks = 350000
+                     } else if (documet.form.jaket.checked){
+                            hargaAks = 150000
+                     } else if (document.form.helm.checked){
+                            hargaAks = 125000
+                     }
+                     document.form.hargaAksesoris.value = hargaAks
+                     document.form.hargaMotor.value = harga 
+                     total = hargaAks + harga
+                     document.form.totalHarga.value =  total
+              }
+       </script>

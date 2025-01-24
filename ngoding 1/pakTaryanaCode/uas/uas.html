@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+       <link rel="stylesheet" href="../../w3.css">
+</head>
+<body>
+       <form action="" name="form">
+              <div class="w3-container w3-center">
+                     <div class="w3-panel w3-green">
+                            <h1>RUMAH GACOR</h1>
+                     </div>
+                     <hr>
+                     <div class="w3-panel w3-green">
+                            <center>
+                                   <p></p>
+                                   <table >
+                                          <tr>
+                                                 <td>Nama Pengguna</td>
+                                                 <td>: <input type="text" name="namaPengguna"></td>
+                                          </tr>
+                                          <tr>
+                                                 <td>Cluster</td>
+                                                 <td>: 
+                                                        <select name="cluster" id="">
+                                                               <option value="MAWAR">MAWAR</option>
+                                                               <option value="ANGGREK">ANGGREK</option>
+                                                               <option value="MELATI">MELATI</option>
+                                                        </select>
+                                                 </td>
+                                          </tr>
+                                          <td>Type</td>
+                                          <td >: 
+                                                 <input type="checkbox" name="tipe" id="" value="A">A
+                                                 <input type="checkbox" name="tipe" id="" value="B">B
+                                                 <input type="checkbox" name="tipe" id="" value="C">C
+                                          </td>
+                                          <tr>
+                                                 <td>Jumlah Rumah</td>
+                                                 <td>: <input type="number" name="jumlah" id=""></td>
+                                          </tr>
+                                          <tr><td colspan="2"><hr></td></tr>
+                                          <tr>
+                                                 <td>Harga Rumah</td>
+                                                 <td>: <input type="text" name="hargaRumah"></td>
+                                          </tr>
+                                          <tr>
+                                                 <td>Total Harga</td>
+                                                 <td>: <input type="text" name="total"></td>
+                                          </tr>
+                                   </table>
+                                   <p></p>
+                            </center>
+                     </div>
+                     <div class="w3-panel w3-green">
+                            <p></p>
+                            <input type="button" value="PROSES" class="w3-btn w3-blue" onclick="proses()">
+                            <input type="button" value="RESET" class="w3-btn w3-red" onclick="reset()">
+                            <p></p>
+                     </div>
+              </div>
+       </form>
+       <script>
+              function proses() {
+                     namaPengguna = document.form.namaPengguna.value 
+                     cluster = document.form.cluster.value
+                     jumlahRumah = document.form.jumlah.value
+                     tipe = document.form.tipe.value
+                     if (cluster == 'MAWAR') {
+                            if (tipe == "A") {
+                                   harga = 20000000  
+                            } else if (tipe == "B"){
+                                   harga = 25000000
+                            } else if(tipe == "C"){
+                                   harga = 30000000
+                            }
+                     }else if(cluster == 'ANGGREK'){
+                            if (tipe == "A") {
+                                   harga = 35000000  
+                            } else if (tipe == "B"){
+                                   harga = 40000000
+                            } else if(tipe == "C"){
+                                   harga = 45000000
+                            }
+                     } else if (cluster == 'MELATI'){
+                            if (tipe == "A") {
+                                   harga = 50000000  
+                            } else if (tipe == "B"){
+                                   harga = 55000000
+                            } else if(tipe == "C"){
+                                   harga = 60000000
+                            }
+                     }
+                     document.form.hargaRumah.value= harga
+              }
+       </script>
+</body>
+</html>
